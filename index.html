@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <style>
+    .high{
+        margin-top: 100px;
+    }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center">CRIME APP</h1>
+    <div class="high">
+  
+  <form>
+              <select class="form-control" style="width: 50%; margin: 0 auto;" id="category" >
+      <option value="crime cat">Select a crime cat</option>
+  </select>
+<br>
+<br>
+  <select name="forces"  class="form-control" style="width: 50%; margin: 0 auto;"id="forces">
+      <option value="force">select a force</option>
+  </select>
+<br>
+  <button type="button"  onClick="FetchCrime()" class="btn btn-danger" style="margin-left: 340px">Submit</button>
+
+</form>
+
+</div>
+<div id="divError"></div>
+
+<br>
+<table class="table" id="tbldata">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody id="tbl_body">
+
+    </tbody>
+</table>  
+  <script src="app.js"></script>
+
+</body>
+</html>
