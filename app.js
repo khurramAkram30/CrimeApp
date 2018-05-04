@@ -1,6 +1,6 @@
 
 var cat = document.getElementById('category');
-var force = document.getElementById('forces');
+var force = document.getElementById('ddlforces');
 var body = document.getElementById('tbl_body');
 var table= document.getElementById('tbldata');
 var bodyError = document.getElementById('divError');
@@ -24,7 +24,7 @@ fetch('https://data.police.uk/api/forces')
 
 function forces(JsonData) {
     for (var i = 0; i < JsonData.length; i++) {
-        force.innerHTML += `<option value="${JsonData[i].url}">${JsonData[i].name}</option>`;
+        force.innerHTML += `<option value="${JsonData[i].id}">${JsonData[i].name}</option>`;
     }
 }
 
@@ -32,15 +32,15 @@ function forces(JsonData) {
 
 function FetchCrime() {
 
-    var force=document.getElementById('forces');
-    var strCrime = cat.options[cat.selectedIndex].value;
-    var strforce = force.options[force.selectedIndex].value;
+    var forceEl=document.getElementById('ddlforces');
+    // var strCrime = cat.options[cat.selectedIndex].value;
+    // var strforce = force.options[force.selectedIndex].value;
     var crimeCat = cat.value;
-    var forceSel = force.value;
+    var forceSel = forceEl.value;
 
 
     fetch(`https://data.police.uk/api/crimes-no-location?category=${crimeCat}&force=${forceSel}`)
-        .then(response => response.json)
+        .then(response => response.json())
         .then(myjson => crime(myjson))
 }
 
